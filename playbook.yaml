@@ -1,0 +1,6 @@
+---
+- name: Common Installation
+  hosts: all
+  become: true
+  roles:
+    - common

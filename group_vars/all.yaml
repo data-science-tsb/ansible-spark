@@ -1,0 +1,3 @@
+---
+  spark_download_src: http://mirror.rise.ph/apache/hadoop/common/hadoop-2.7.2/hadoop-2.7.2-src.tar.gz
+  spark_download_checksum: sha512:9FEA5E2835E05AD20D2228A9DF316DCBBEA9CE5D69AE4F47522B837A329390770DA309E8F88CE9A1EB99A34874A3F147E55628A55F2C738316414EA23050306B
