@@ -1,8 +1,43 @@
 ---
   - include_vars: "private_vars/nodes.yaml"
-  - name: Install Java 8
+
+  - name: Install Java8
     yum: name=java-1.8.0-openjdk state=latest
+
   - name: Set JAVA_HOME
     lineinfile: dest="{{ host_environment_file }}" regexp="^export JAVA_HOME" line="export JAVA_HOME={{ java_install_path }}"
+
+  - name: Remove Java7
+    yum: name=java-1.7.0-openjdk state=absent
+
+  - name: Download Scala
+    get_url:
+      url: "{{ scala_download_src }}"
+      dest: "{{ scala_download_dest }}"
+
+  - name: Extract Scala
+    unarchive:
+      remote_src: yes
+      src: "{{ scala_download_dest }}" 
+      dest: "{{ scala_extract_dest }}"
+
+  - name: Set SCALA_HOME
+    lineinfile: 
+      dest: "{{ host_environment_file }}" 
+      state: present
+      regexp: "^export SCALA_HOME" 
+      line: "export SCALA_HOME={{ scala_extract_dest }}"
+
+  - name: Download Spark
+    get_url:
+      url: "{{ spark_download_src }}"
+      dest: "{{ spark_download_dest }}"
+      checksum: "{{ spark_download_checksum }}"
+
   - name: Extract Spark
-    unarchive: src="{{ hadoop_download_dest }}" dest="{{ hadoop_install_dir }}" copy=yes
+    unarchive:
+      remote_src: yes
+      src: "{{ spark_download_dest }}" 
+      dest: "{{ spark_extract_dest }}"
+
+  - name: Reload BashRC
