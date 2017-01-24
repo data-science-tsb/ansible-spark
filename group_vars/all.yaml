@@ -4,10 +4,10 @@
   spark_download_src: http://d3kbcqa49mib13.cloudfront.net/spark-2.0.2-bin-hadoop2.7.tgz
   spark_download_dest: /home/ec2-user/spark-2.0.2-bin-hadoop2.7.tgz
   spark_download_checksum: sha512:9A1D19AB295D1252ECB0A4ADCAAF5F215A75DC7427597AF9A9475F0C0FE0A59713FF601E5C13ECE25ECCD67913167FAB85A04D1C104A51C027D4F39E2C414034
-  spark_extract_dest: /home/ec2-user/spark-2.0.2-bin-hadoop2.7
+  spark_extract_dest: /home/ec2-user
 
   scala_download_src: http://downloads.lightbend.com/scala/2.12.1/scala-2.12.1.tgz
   scala_download_dest: /home/ec2-user/scala-2.12.1.tgz
-  scala_extract_dest: /home/ec2-user/scala-2.12.1
+  scala_extract_dest: /home/ec2-user
 
   host_environment_file: /home/ec2-user/.bashrc
