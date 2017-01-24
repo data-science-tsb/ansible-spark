@@ -27,6 +27,9 @@ ansible-playbook -e 'host_key_checking=False' playbook.yaml
 We only need to do this once, just to give ansible SSH access to the machine
 After this, just clone the damn machines without key mods
 ```
-ssh-keygen -t rsa -b 4096 -C "spark@spark.com"
+ssh-keygen -t rsa -b 4096 -C "lyndon.spark@spark.com"
 cat /home/ec2-user/.ssh/id_rsa.pub >> /home/ec2-user/.ssh/authorized_keys
+cat /home/ec2-user/.ssh/id_rsa_ansible.pub >> /home/ec2-user/.ssh/authorized_keys
+
+pscp -i C:\Users\KWL\Desktop\DriveSync\aws-priv.ppk C:\Users\KWL\Desktop\id_rsa.pub ec2-user@54.149.247.58:/home/ec2-user/.ssh/id_rsa_ansible.pub
 ```
