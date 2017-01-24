@@ -1,6 +1,4 @@
 ---
-  - include_vars: "private_vars/nodes.yaml"
-
   - name: Install Java8
     yum: 
       name: java-1.8.0-openjdk 
