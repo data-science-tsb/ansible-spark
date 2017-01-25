@@ -1,7 +1,0 @@
----
-- name: Slave Setup
-  strategy: debug
-  hosts: slaves
-  become: true
-  roles:
-    - slave

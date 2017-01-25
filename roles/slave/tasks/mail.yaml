@@ -1,7 +1,8 @@
 ---
-  - name: Preparing Slave for Connection
+  - name: Debugging Slave Start Connection
     debug:
       msg: "Running Shell Command: {{ spark_extract_location }}/sbin/start-slave.sh spark://{{groups['master'][0]:7077}}"
+      verbosity: 3
 
   - name: Start Slaves
     shell: "{{ spark_extract_location }}/sbin/start-slave.sh spark://{{groups['master'][0]:7077}}"
