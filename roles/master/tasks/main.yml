@@ -7,5 +7,5 @@
   - name: Start Master
     shell: "{{ spark_extract_location }}/sbin/start-master.sh"
 
-  - name: Start Slaves
-    shell: "{{ spark_extract_location }}/sbin/start-slaves.sh"
+  #- name: Start Slaves
+  #  shell: "{{ spark_extract_location }}/sbin/start-slaves.sh"

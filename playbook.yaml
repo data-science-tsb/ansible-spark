@@ -10,3 +10,9 @@
   become: true
   roles:
     - master
+
+- name: Slave Setup
+  hosts: slaves
+  become: true
+  roles:
+    - slave
