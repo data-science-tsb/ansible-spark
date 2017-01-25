@@ -1,3 +1,11 @@
 ---
+  - name: Configure Slave List
+      template: 
+        src: slaves
+        dest: "{{ spark_extract_location }}/conf/slaves"
+
   - name: Start Master
-      shell: "{{ scala_extract_location }}/start-master.sh"
+      shell: "{{ spark_extract_location }}/start-master.sh"
+
+  - name: Start Slaves
+            shell: "{{ spark_extract_location }}/start-slaves.sh"
