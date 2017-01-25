@@ -1,5 +1,3 @@
 ---
   - name: Start Master
-    yum: 
-      name: java-1.8.0-openjdk 
-      state: latest
+      shell: "{{ scala_extract_location }}/start-master.sh"
