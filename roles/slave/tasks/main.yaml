@@ -1,8 +1,8 @@
 ---
   - name: Debugging Slave Start Connection
     debug:
-      msg: "Running Shell Command: {{ spark_extract_location }}/sbin/start-slave.sh spark://{{groups['master'][0]:7077}}"
+      msg: "Master IP: {{ groups['master'][0] }}"
       verbosity: 1
 
   - name: Start Slaves
-    shell: "{{ spark_extract_location }}/sbin/start-slave.sh spark://{{groups['master'][0]:7077}}"
+    shell: "{{ spark_extract_location }}/sbin/start-slave.sh spark://{{ groups['master'][0] }}:7077"
