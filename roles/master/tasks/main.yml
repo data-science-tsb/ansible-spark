@@ -5,7 +5,7 @@
       dest: "{{ spark_extract_location }}/conf/slaves"
 
   - name: Start Master
-    shell: "{{ spark_extract_location }}/start-master.sh"
+    shell: "{{ spark_extract_location }}/sbin/start-master.sh"
 
   - name: Start Slaves
-    shell: "{{ spark_extract_location }}/start-slaves.sh"
+    shell: "{{ spark_extract_location }}/sbin/start-slaves.sh"
