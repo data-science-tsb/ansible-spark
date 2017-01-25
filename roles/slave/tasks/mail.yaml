@@ -1,3 +1,7 @@
 ---
+  - name: Preparing Slave for Connection
+    debug:
+      msg: "Running Shell Command: {{ spark_extract_location }}/sbin/start-slave.sh spark://{{groups['master'][0]:7077}}"
+
   - name: Start Slaves
     shell: "{{ spark_extract_location }}/sbin/start-slave.sh spark://{{groups['master'][0]:7077}}"
