@@ -4,3 +4,9 @@
   become: true
   roles:
     - common
+
+- name: Master Setup
+  hosts: master
+  become: true
+  roles:
+    - master

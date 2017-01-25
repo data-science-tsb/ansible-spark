@@ -1,1 +1,0 @@
-ansible-playbook -e 'host_key_checking=False' ../playbook.yaml

@@ -28,10 +28,10 @@
 
   - name: Set SCALA_HOME
     lineinfile: 
-      dest: "{{ host_environment_file }}" 
+      dest: "{{ host_environment_file }}"
       state: present
-      regexp: "^export SCALA_HOME" 
-      line: "export SCALA_HOME={{ scala_extract_dest }}"
+      regexp: "^export SCALA_HOME"
+      line: "export SCALA_HOME={{ scala_extract_location }}"
 
   - name: Download Spark
     get_url:
@@ -44,4 +44,11 @@
       remote_src: yes
       src: "{{ spark_download_dest }}" 
       dest: "{{ spark_extract_dest }}"
+
+  - name: Set SPARK_HOME
+    lineinfile: 
+      dest: "{{ host_environment_file }}"
+      state: present
+      regexp: "^export SPARK_HOME"
+      line: "export SPARK_HOME={{ spark_extract_location }}"
 

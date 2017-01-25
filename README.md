@@ -5,6 +5,16 @@ Run this ansible script to spawn a spark cluster
 - http://spark.apache.org/docs/latest/spark-standalone.html
 - http://spark.apache.org/docs/latest/submitting-applications.html
 
+##ALL Machine Basic Setup
+We only need to do this once, just to give each other passwordless SSH access, 
+including ansible controller.
+After this, just clone the damn machines without key mods.
+I basically created an image with passwordless SSH and used it as a base
+im
+```
+ssh-keygen -t rsa -b 4096 -C "lyndon.spark@spark.com"
+cat /home/ec2-user/.ssh/id_rsa.pub >> /home/ec2-user/.ssh/authorized_keys
+```
 
 #Ansible Machine Master Setup
 ```
@@ -20,16 +30,5 @@ sudo vi /etc/ansible/hosts
 35.161.66.165
 35.161.234.3
 
-ansible-playbook -e 'host_key_checking=False' playbook.yaml
-```
-
-##Spark Machine Basic Setup
-We only need to do this once, just to give ansible SSH access to the machine
-After this, just clone the damn machines without key mods
-```
-ssh-keygen -t rsa -b 4096 -C "lyndon.spark@spark.com"
-cat /home/ec2-user/.ssh/id_rsa.pub >> /home/ec2-user/.ssh/authorized_keys
-cat /home/ec2-user/.ssh/id_rsa_ansible.pub >> /home/ec2-user/.ssh/authorized_keys
-
-pscp -i C:\Users\KWL\Desktop\DriveSync\aws-priv.ppk C:\Users\KWL\Desktop\id_rsa.pub ec2-user@54.149.247.58:/home/ec2-user/.ssh/id_rsa_ansible.pub
+ansible-playbook playbook.yaml
 ```
