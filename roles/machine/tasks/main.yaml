@@ -9,7 +9,7 @@
         aws_secret_key: {{ aws_key_secret }}
         region: {{ aws_region }}
         group_id: {{ aws_security_group }}
-        image: {{ aws_image }}
+        image: {{ aws_image_master }}
         instance_type: {{ aws_instance_type}}
         exact_count: 1
         instance_tags: 
