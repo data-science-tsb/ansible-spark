@@ -1,8 +1,9 @@
 ---
   - name: Debugging Slave Start Connection
     debug:
-      msg: "Master IP: {{ groups['master'][0] }}"
+      msg: "Master Address: {{ groups['master'][0] }}:{{ master_port }} Slave Memory: {{ slave_memory }} Slave Port: {{ slave_port }}"
       verbosity: 1
 
   - name: Start Slaves
-    shell: "{{ spark_extract_location }}/sbin/start-slave.sh spark://{{ groups['master'][0] }}:{{ master_port }} -m {{ slave_memory }} -p {{ slave_port }}"
+    #shell: "{{ spark_extract_location }}/sbin/start-slave.sh spark://{{ groups['master'][0] }}:{{ master_port }} -m {{ slave_memory }} -p {{ slave_port }}"
+    shell: "{{ spark_extract_location }}/sbin/start-slave.sh spark://{{ groups['master'][0] }}:{{ master_port }}"
