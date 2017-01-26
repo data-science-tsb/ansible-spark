@@ -38,13 +38,12 @@ Add The Secret Stuffs
 mkdir private_vars
 
 vi private_vars/aws.yaml
-aws_key_name=xxx
-aws_key_id=xxx
-aws_key_secret=xxx
-aws_image=ami-xxxxx
-aws_image_slave=ami-xxxx
-aws_slave_count=2
-aws_instance_type=t2.xlarge
-aws_security_group=sg-xxxxxx
-aws_region=us-west-2
+aws_key_id: xxx
+aws_key_secret: xxx
+aws_image_master: ami-xxxxx
+aws_image_slave: ami-xxxx
+aws_slave_count: 2
+aws_instance_type: t2.xlarge
+aws_security_group: sg-xxxxxx
+aws_region: us-west-2
 ```

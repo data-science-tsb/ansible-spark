@@ -1,6 +1,7 @@
 ---
-- name: Launch VM
+- name: Launch Machines
   hosts: localhost
-  become: true
+  become: True
+  gather_facts: False
   roles:
     - machine
