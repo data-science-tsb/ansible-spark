@@ -15,3 +15,9 @@
   host_environment_file: /home/ec2-user/.bashrc
 
   root_user: ec2-user
+
+  slave_port: 7078
+  slave_memory: 12G
+
+  master_port: 7077
+  master_memory: 12G
