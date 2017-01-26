@@ -1,0 +1,6 @@
+---
+- name: Launch VM
+  hosts: localhost
+  become: true
+  roles:
+    - machine

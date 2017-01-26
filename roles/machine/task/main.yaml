@@ -1,0 +1,21 @@
+---
+  vars_files:
+    - "{{ playbook_dir }}/private_vars/aws.yml"
+  tasks:
+    - name: Launch Master Server
+      local_action:
+        module: ec2
+        aws_access_key: {{ aws_key_id }}
+        aws_secret_key: {{ aws_key_secret }}
+        region: {{ aws_region }}
+        group_id: {{ aws_security_group }}
+        image: {{ aws_image }}
+        instance_type: {{ aws_instance_type}}
+        exact_count: 1
+        instance_tags: 
+          Name: spark-master
+          Environment: test
+          Creator: ansible
+        wait: True
+        assign_public_ip: yes
+
