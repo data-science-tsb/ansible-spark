@@ -3,5 +3,7 @@
   hosts: localhost
   become: True
   gather_facts: False
+  vars_files:
+    - "private_vars/aws.yml"
   roles:
     - machine
