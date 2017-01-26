@@ -52,3 +52,9 @@
       regexp: "^export SPARK_HOME"
       line: "export SPARK_HOME={{ spark_extract_location }}"
 
+  - name: Hive Scratchpad
+    file:
+      path: /tmp/hive
+      state: directory
+      owner: "{{ root_user }}"
+

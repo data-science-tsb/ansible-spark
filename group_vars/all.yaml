@@ -13,3 +13,5 @@
   scala_extract_location: /home/ec2-user/scala-2.12.1
 
   host_environment_file: /home/ec2-user/.bashrc
+
+  root_user: ec2-user
