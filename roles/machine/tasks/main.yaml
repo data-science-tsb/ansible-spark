@@ -18,5 +18,4 @@
         Environment: test
         Creator: ansible
       wait: True
-      assign_public_ip: yes
 
