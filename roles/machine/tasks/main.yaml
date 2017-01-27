@@ -9,6 +9,10 @@
       image: "{{ aws_image_master }}"
       instance_type: "{{ aws_instance_type}}"
       exact_count: 1
+      count_tag:
+        Name: spark-master
+        Environment: test
+        Creator: ansible
       instance_tags: 
         Name: spark-master
         Environment: test

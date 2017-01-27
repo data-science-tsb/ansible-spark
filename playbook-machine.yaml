@@ -4,6 +4,6 @@
   become: True
   gather_facts: False
   vars_files:
-    - "private_vars/aws.yml"
+    - "private_vars/aws.yaml"
   roles:
     - machine
