@@ -9,6 +9,11 @@
         "tag:ClusterName": "{{ spark_cluster_name }}"
     register: spark_machines
 
-  - name: Log Facts
-    debug:
-      msg: "Instances: {{ spark_machines }}"
+  - name: Terminate Cluster
+    ec2:
+      state: 'absent'
+      aws_access_key: "{{ aws_key_id }}"
+      aws_secret_key: "{{ aws_key_secret }}"
+      region: "{{ aws_region }}"
+      instance_ids: '{{ item.id }}'
+    with_items: "{{ spark_machines.instances }}"

@@ -28,6 +28,8 @@ sudo vi /etc/ansible/ansible.cfg
 host_key_checking = False
 
 ansible-playbook playbook.yaml
+
+ansible-playbook playbook.yaml --private-key ~/Documents/keys/dev-lyndon.pem  --user ec2-user
 ```
 
 Add The Secret Stuffs

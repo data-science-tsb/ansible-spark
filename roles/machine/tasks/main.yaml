@@ -49,14 +49,10 @@
       aws_secret_key: "{{ aws_key_secret }}"
       region: "{{ aws_region }}"
       filters: 
+        instance-state-name: running
         "tag:ClusterName": "{{ spark_cluster_name }}"
         "tag:Name": spark-master
     register: spark_master
-
-  - name: Add Master Instance Host
-    add_host:
-      groups: master 
-      hostname: "{{ spark_master.instances.0.public_ip_address }}"
 
   - name: Get Slave EC2 Instance Information
     ec2_remote_facts:
@@ -64,13 +60,16 @@
       aws_secret_key: "{{ aws_key_secret }}"
       region: "{{ aws_region }}"
       filters: 
+        instance-state-name: running
         "tag:ClusterName": "{{ spark_cluster_name }}"
         "tag:Name": spark-slave
     register: spark_slave
 
-  - name: Debug Slaves
-    debug: 
-      msg: "out: {{ spark_slave.instances }}"
+  - name: Add Master Host
+    add_host:
+      groups: master 
+      hostname: "{{ item.public_ip_address }}"
+    with_items: "{{ spark_master.instances }}"
 
   - name: Add Slave Hosts
     add_host:
