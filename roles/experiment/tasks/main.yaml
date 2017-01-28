@@ -6,3 +6,8 @@
       region: "{{ aws_region }}"
       filters: 
         "tag:ClusterName":  "{{ spark_cluster_name }}"
+    register: spark_master
+
+  - name: Log Facts
+    debug:
+      msg: "Master IP Address: {{ spark_master['instances'][0]['public_ip_address'] }}"

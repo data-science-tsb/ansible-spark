@@ -42,3 +42,38 @@
         Environment: "{{ environment_type }}"
         Creator: ansible
       wait: True
+
+  - name: Get Master EC2 Instance Information
+    ec2_remote_facts:
+      aws_access_key: "{{ aws_key_id }}"
+      aws_secret_key: "{{ aws_key_secret }}"
+      region: "{{ aws_region }}"
+      filters: 
+        "tag:ClusterName": "{{ spark_cluster_name }}"
+        "tag:Name": spark-master
+    register: spark_master
+
+  - name: Add Master Instance Host
+    add_host:
+      groups: master 
+      hostname: "{{ spark_master.instances.0.public_ip_address }}"
+
+  - name: Get Slave EC2 Instance Information
+    ec2_remote_facts:
+      aws_access_key: "{{ aws_key_id }}"
+      aws_secret_key: "{{ aws_key_secret }}"
+      region: "{{ aws_region }}"
+      filters: 
+        "tag:ClusterName": "{{ spark_cluster_name }}"
+        "tag:Name": spark-slave
+    register: spark_slave
+
+  - name: Debug Slaves
+    debug: 
+      msg: "out: {{ spark_slave.instances }}"
+
+  - name: Add Slave Hosts
+    add_host:
+      groups: slaves
+      hostname: "{{ item.public_ip_address }}"
+    with_items: "{{ spark_slave.instances }}"
