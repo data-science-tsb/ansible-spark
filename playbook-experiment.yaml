@@ -1,0 +1,8 @@
+---
+- name: Experiment
+  hosts: localhost
+  gather_facts: False
+  vars_files:
+    - "private_vars/config.yaml"
+  roles:
+    - experiment
