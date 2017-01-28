@@ -28,8 +28,8 @@ sudo vi /etc/ansible/ansible.cfg
 host_key_checking = False
 
 ansible-playbook playbook.yaml
-
-ansible-playbook playbook.yaml --private-key ~/Documents/keys/dev-lyndon.pem  --user ec2-user
+ansible-playbook playbook-terminator.yaml
+ansible-playbook playbook.yaml --private-key ~/Documents/KWL/keys/dev-lyndon.pem  --user ec2-user
 ```
 
 Add The Secret Stuffs
@@ -47,4 +47,13 @@ aws_security_group: sg-xxxxxx
 aws_region: us-west-2
 spark_cluster_name: namespace_conflict
 environment_type: TEST/PROD/STAGING
+```
+
+Spark Shell
+```
+spark-shell --executor-memory 1g --total-executor-cores 4 --master spark://54.202.102.150:7077
+
+54.202.102.150:8080
+
+sc.textFile("sample-file.html").flatMap(line => line.split(" ")).map(word => (word, 1)).reduceByKey(_ + _).saveAsTextFile("testx")
 ```

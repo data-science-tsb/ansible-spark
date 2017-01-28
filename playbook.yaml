@@ -9,7 +9,7 @@
     - machine
 
 - name: Common Installation
-  hosts: all
+  hosts: master, slaves
   become: True
   roles:
     - common

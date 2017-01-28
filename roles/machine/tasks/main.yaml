@@ -76,3 +76,7 @@
       groups: slaves
       hostname: "{{ item.public_ip_address }}"
     with_items: "{{ spark_slave.instances }}"
+
+  - name: Pause... Give EC2 a Chance to Fully Wake the Server Up!!!
+    pause:
+      minutes: 2

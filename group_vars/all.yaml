@@ -17,7 +17,8 @@
   root_user: ec2-user
 
   slave_port: 7078
-  slave_memory: 12G
+  slave_memory: 14G
+  slave_core: 4
 
   master_port: 7077
   master_memory: 12G

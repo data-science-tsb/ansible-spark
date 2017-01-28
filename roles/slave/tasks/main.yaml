@@ -5,5 +5,4 @@
       verbosity: 1
 
   - name: Start Slaves
-    #shell: "{{ spark_extract_location }}/sbin/start-slave.sh spark://{{ groups['master'][0] }}:{{ master_port }} -m {{ slave_memory }} -p {{ slave_port }}"
-    shell: "{{ spark_extract_location }}/sbin/start-slave.sh spark://{{ groups['master'][0] }}:{{ master_port }}"
+    shell: "{{ spark_extract_location }}/sbin/start-slave.sh spark://{{ groups['master'][0] }}:{{ master_port }} --memory {{ slave_memory }} --port {{ slave_port }} --cores {{ slave_core }}"
