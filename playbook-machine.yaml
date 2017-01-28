@@ -1,9 +1,0 @@
----
-- name: Launch Machines
-  hosts: localhost
-  become: False
-  gather_facts: False
-  vars_files:
-    - "private_vars/config.yaml"
-  roles:
-    - machine
