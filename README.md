@@ -30,14 +30,14 @@ sudo vi /etc/ansible/hosts
 35.161.66.165
 35.161.234.3
 
-ansible-playbook playbook.yaml
+ansible-playbook playbook-machine.yaml
 ```
 
 Add The Secret Stuffs
 ```
 mkdir private_vars
 
-vi private_vars/aws.yaml
+vi private_vars/config.yaml
 aws_key_id: xxx
 aws_key_secret: xxx
 aws_image_master: ami-xxxxx
@@ -46,4 +46,6 @@ aws_slave_count: 2
 aws_instance_type: t2.xlarge
 aws_security_group: sg-xxxxxx
 aws_region: us-west-2
+spark_cluster_name: namespace_conflict
+environment_type: TEST/PROD/STAGING
 ```
