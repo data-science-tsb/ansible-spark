@@ -63,9 +63,9 @@
       - "{{ spark_extract_location }}/tmp/scratch"
       - "{{ spark_extract_location }}/tmp/worker"
 
-  #- name: Copy spark-env.sh
-  #  template: 
-  #    src: "spark-env.sh.template" 
-  #    dest: "{{ spark_extract_location }}/conf/spark-env.sh"
+  - name: Copy spark-env.sh
+    template: 
+      src: "spark-env.sh.template" 
+      dest: "{{ spark_extract_location }}/conf/spark-env.sh"
 
 

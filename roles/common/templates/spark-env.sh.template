@@ -1,9 +1,9 @@
-SPARK_MASTER_HOST={{ groups.master.0 }}
-SPARK_MASTER_PORT={{ master_port }}
-SPARK_MASTER_WEBUI_PORT=8080
-SPARK_LOCAL_DIRS={{ spark_extract_location }}/tmp/scratch
+#SPARK_MASTER_HOST={{ groups.master.0 }}
+#SPARK_MASTER_PORT={{ master_port }}
+#SPARK_MASTER_WEBUI_PORT=8080
+#SPARK_LOCAL_DIRS={{ spark_extract_location }}/tmp/scratch
 SPARK_WORKER_CORES={{ slave_core }}
-SPARK_WORKER_MEMORY={{ slave_memory }}
-SPARK_WORKER_WEBUI_PORT=8081
-SPARK_WORKER_DIR={{ spark_extract_location }}/tmp/worker
+#SPARK_WORKER_MEMORY={{ slave_memory }}
+#SPARK_WORKER_WEBUI_PORT=8081
+#SPARK_WORKER_DIR={{ spark_extract_location }}/tmp/worker
 SPARK_MASTER_OPTS=-Dspark.deploy.defaultCores=1
