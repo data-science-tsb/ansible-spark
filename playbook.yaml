@@ -2,7 +2,6 @@
 - name: Launch Machines
   hosts: localhost
   become: False
-  gather_facts: False
   vars_files:
     - "private_vars/config.yaml"
   roles:
@@ -11,17 +10,23 @@
 - name: Common Installation
   hosts: master, slaves
   become: True
+  vars_files:
+    - "private_vars/config.yaml"
   roles:
     - common
 
 - name: Master Setup
   hosts: master
   become: True
+  vars_files:
+    - "private_vars/config.yaml"
   roles:
     - master
 
 - name: Slave Setup
   hosts: slaves
   become: True
+  vars_files:
+    - "private_vars/config.yaml"
   roles:
     - slave

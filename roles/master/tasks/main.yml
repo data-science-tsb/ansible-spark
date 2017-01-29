@@ -1,6 +1,5 @@
 ---
   - name: Start Master
-    #shell: "{{ spark_extract_location }}/sbin/start-master.sh -p {{ master_port }} -m {{ master_memory }}"
     shell: "{{ spark_extract_location }}/sbin/start-master.sh"
 
   #- name: Configure Slave List

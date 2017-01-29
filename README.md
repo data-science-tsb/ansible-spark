@@ -47,13 +47,19 @@ aws_security_group: sg-xxxxxx
 aws_region: us-west-2
 spark_cluster_name: namespace_conflict
 environment_type: TEST/PROD/STAGING
+
+slave_port: 7078
+slave_memory: 512mb
+slave_core: 1
+master_port: 7077
+master_memory: 512mb
 ```
 
 Spark Shell
 ```
-spark-shell --executor-memory 1g --total-executor-cores 4 --master spark://54.202.102.150:7077
+spark-shell --executor-memory 1g --total-executor-cores 1 --executor-cores 1 --driver-memory 1g --driver-cores 1 --master spark://54.202.71.167:7077
 
 54.202.102.150:8080
 
-sc.textFile("sample-file.html").flatMap(line => line.split(" ")).map(word => (word, 1)).reduceByKey(_ + _).saveAsTextFile("testx")
+sc.textFile("sample-file.html").flatMap(line => line.split(" ")).map(word => (word, 1)).reduceByKey(_ + _).saveAsTextFile("testxx")
 ```

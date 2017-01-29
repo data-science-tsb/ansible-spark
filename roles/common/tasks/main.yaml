@@ -54,7 +54,18 @@
 
   - name: Hive Scratchpad
     file:
-      path: /tmp/hive
+      path: "{{ item }}"
       state: directory
       owner: "{{ root_user }}"
+    with_items: 
+      - /tmp/hive
+      - "{{ spark_extract_location }}/tmp"
+      - "{{ spark_extract_location }}/tmp/scratch"
+      - "{{ spark_extract_location }}/tmp/worker"
+
+  #- name: Copy spark-env.sh
+  #  template: 
+  #    src: "spark-env.sh.template" 
+  #    dest: "{{ spark_extract_location }}/conf/spark-env.sh"
+
 
