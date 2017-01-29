@@ -10,3 +10,7 @@
 
   #- name: Start Slaves
   #  shell: "{{ spark_extract_location }}/sbin/start-slaves.sh"
+
+  - name: Pause... Give The Master a few Seconds to Wake Up!!!
+    pause:
+      seconds: 15

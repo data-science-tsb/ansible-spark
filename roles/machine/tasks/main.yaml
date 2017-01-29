@@ -79,4 +79,4 @@
 
   - name: Pause... Give EC2 a Chance to Fully Wake the Server Up!!!
     pause:
-      minutes: 2
+      seconds: 30
